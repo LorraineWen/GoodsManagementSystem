@@ -1,0 +1,11 @@
+/home/lorrainewen/CodeLamp/server1/build/CMakeFiles/edit_cache.dir
+/home/lorrainewen/CodeLamp/server1/build/CMakeFiles/rebuild_cache.dir
+/home/lorrainewen/CodeLamp/server1/build/src/CMakeFiles/server.dir
+/home/lorrainewen/CodeLamp/server1/build/src/CMakeFiles/edit_cache.dir
+/home/lorrainewen/CodeLamp/server1/build/src/CMakeFiles/rebuild_cache.dir
+/home/lorrainewen/CodeLamp/server1/build/src/model/CMakeFiles/modellib.dir
+/home/lorrainewen/CodeLamp/server1/build/src/model/CMakeFiles/edit_cache.dir
+/home/lorrainewen/CodeLamp/server1/build/src/model/CMakeFiles/rebuild_cache.dir
+/home/lorrainewen/CodeLamp/server1/build/src/tool/CMakeFiles/toollib.dir
+/home/lorrainewen/CodeLamp/server1/build/src/tool/CMakeFiles/edit_cache.dir
+/home/lorrainewen/CodeLamp/server1/build/src/tool/CMakeFiles/rebuild_cache.dir

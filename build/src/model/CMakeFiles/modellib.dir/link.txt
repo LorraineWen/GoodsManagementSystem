@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../libmodellib.a CMakeFiles/modellib.dir/models/goods.cpp.o CMakeFiles/modellib.dir/dao/addgoodsdao.cpp.o CMakeFiles/modellib.dir/dao/deletegoodsdao.cpp.o CMakeFiles/modellib.dir/dao/querygoodsdao.cpp.o CMakeFiles/modellib.dir/dao/updategoodsdao.cpp.o
+/usr/bin/ranlib ../../libmodellib.a
