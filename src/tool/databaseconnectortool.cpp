@@ -1,8 +1,8 @@
 #include"../../include/tool/databaseconnectortool.h"
-DatabaseConnector* DatabaseConnector::databaseconn=new DatabaseConnector();
+DatabaseConnector DatabaseConnector::databaseconn;
 sql::Connection* DatabaseConnector::getDatabaseConnector()
 {
-    return databaseconn->con;
+    return databaseconn.con;
 }
 DatabaseConnector::DatabaseConnector()
 {
@@ -11,12 +11,10 @@ DatabaseConnector::DatabaseConnector()
 }
 DatabaseConnector::~DatabaseConnector()
 {
-    // if(con&&databaseconn) 
-    // {
-    //     con->close();
-    //     delete con;
-    //     delete databaseconn;
-    //     con=nullptr;
-    //     databaseconn=nullptr;
-    // }
+    if(con) 
+    {
+        con->close();
+        delete con;
+        con=nullptr;
+    }
 }

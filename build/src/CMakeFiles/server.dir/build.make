@@ -92,6 +92,7 @@ server_EXTERNAL_OBJECTS =
 
 server: src/CMakeFiles/server.dir/main.cpp.o
 server: src/CMakeFiles/server.dir/build.make
+server: libcontrollerlib.a
 server: libmodellib.a
 server: libtoollib.a
 server: src/CMakeFiles/server.dir/link.txt

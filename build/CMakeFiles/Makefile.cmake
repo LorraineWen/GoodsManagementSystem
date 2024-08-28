@@ -12,6 +12,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
   "/home/lorrainewen/CodeLamp/server1/src/CMakeLists.txt"
+  "/home/lorrainewen/CodeLamp/server1/src/controller/CMakeLists.txt"
   "/home/lorrainewen/CodeLamp/server1/src/model/CMakeLists.txt"
   "/home/lorrainewen/CodeLamp/server1/src/tool/CMakeLists.txt"
   "/usr/share/cmake-3.28/Modules/CMakeCInformation.cmake"
@@ -46,6 +47,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/model/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/tool/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/controller/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -53,4 +55,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/server.dir/DependInfo.cmake"
   "src/model/CMakeFiles/modellib.dir/DependInfo.cmake"
   "src/tool/CMakeFiles/toollib.dir/DependInfo.cmake"
+  "src/controller/CMakeFiles/controllerlib.dir/DependInfo.cmake"
   )

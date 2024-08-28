@@ -81,18 +81,36 @@ clean: src/clean
 src/all: src/CMakeFiles/server.dir/all
 src/all: src/model/all
 src/all: src/tool/all
+src/all: src/controller/all
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
 src/preinstall: src/model/preinstall
 src/preinstall: src/tool/preinstall
+src/preinstall: src/controller/preinstall
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
 src/clean: src/CMakeFiles/server.dir/clean
 src/clean: src/model/clean
 src/clean: src/tool/clean
+src/clean: src/controller/clean
 .PHONY : src/clean
+
+#=============================================================================
+# Directory level rules for directory src/controller
+
+# Recursive "all" directory target.
+src/controller/all: src/controller/CMakeFiles/controllerlib.dir/all
+.PHONY : src/controller/all
+
+# Recursive "preinstall" directory target.
+src/controller/preinstall:
+.PHONY : src/controller/preinstall
+
+# Recursive "clean" directory target.
+src/controller/clean: src/controller/CMakeFiles/controllerlib.dir/clean
+.PHONY : src/controller/clean
 
 #=============================================================================
 # Directory level rules for directory src/model
@@ -130,14 +148,15 @@ src/tool/clean: src/tool/CMakeFiles/toollib.dir/clean
 # All Build rule for target.
 src/CMakeFiles/server.dir/all: src/model/CMakeFiles/modellib.dir/all
 src/CMakeFiles/server.dir/all: src/tool/CMakeFiles/toollib.dir/all
+src/CMakeFiles/server.dir/all: src/controller/CMakeFiles/controllerlib.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/lorrainewen/CodeLamp/server1/build/CMakeFiles --progress-num=7,8 "Built target server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/lorrainewen/CodeLamp/server1/build/CMakeFiles --progress-num=13,14 "Built target server"
 .PHONY : src/CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lorrainewen/CodeLamp/server1/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lorrainewen/CodeLamp/server1/build/CMakeFiles 16
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lorrainewen/CodeLamp/server1/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/server.dir/rule
@@ -158,7 +177,7 @@ src/CMakeFiles/server.dir/clean:
 src/model/CMakeFiles/modellib.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/model/CMakeFiles/modellib.dir/build.make src/model/CMakeFiles/modellib.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/model/CMakeFiles/modellib.dir/build.make src/model/CMakeFiles/modellib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/lorrainewen/CodeLamp/server1/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target modellib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/lorrainewen/CodeLamp/server1/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Built target modellib"
 .PHONY : src/model/CMakeFiles/modellib.dir/all
 
 # Build rule for subdir invocation for target.
@@ -184,7 +203,7 @@ src/model/CMakeFiles/modellib.dir/clean:
 src/tool/CMakeFiles/toollib.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/tool/CMakeFiles/toollib.dir/build.make src/tool/CMakeFiles/toollib.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/tool/CMakeFiles/toollib.dir/build.make src/tool/CMakeFiles/toollib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/lorrainewen/CodeLamp/server1/build/CMakeFiles --progress-num=9,10 "Built target toollib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/lorrainewen/CodeLamp/server1/build/CMakeFiles --progress-num=15,16 "Built target toollib"
 .PHONY : src/tool/CMakeFiles/toollib.dir/all
 
 # Build rule for subdir invocation for target.
@@ -202,6 +221,33 @@ toollib: src/tool/CMakeFiles/toollib.dir/rule
 src/tool/CMakeFiles/toollib.dir/clean:
 	$(MAKE) $(MAKESILENT) -f src/tool/CMakeFiles/toollib.dir/build.make src/tool/CMakeFiles/toollib.dir/clean
 .PHONY : src/tool/CMakeFiles/toollib.dir/clean
+
+#=============================================================================
+# Target rules for target src/controller/CMakeFiles/controllerlib.dir
+
+# All Build rule for target.
+src/controller/CMakeFiles/controllerlib.dir/all: src/model/CMakeFiles/modellib.dir/all
+src/controller/CMakeFiles/controllerlib.dir/all: src/tool/CMakeFiles/toollib.dir/all
+	$(MAKE) $(MAKESILENT) -f src/controller/CMakeFiles/controllerlib.dir/build.make src/controller/CMakeFiles/controllerlib.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/controller/CMakeFiles/controllerlib.dir/build.make src/controller/CMakeFiles/controllerlib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/lorrainewen/CodeLamp/server1/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target controllerlib"
+.PHONY : src/controller/CMakeFiles/controllerlib.dir/all
+
+# Build rule for subdir invocation for target.
+src/controller/CMakeFiles/controllerlib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lorrainewen/CodeLamp/server1/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/controller/CMakeFiles/controllerlib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lorrainewen/CodeLamp/server1/build/CMakeFiles 0
+.PHONY : src/controller/CMakeFiles/controllerlib.dir/rule
+
+# Convenience name for target.
+controllerlib: src/controller/CMakeFiles/controllerlib.dir/rule
+.PHONY : controllerlib
+
+# clean rule for target.
+src/controller/CMakeFiles/controllerlib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/controller/CMakeFiles/controllerlib.dir/build.make src/controller/CMakeFiles/controllerlib.dir/clean
+.PHONY : src/controller/CMakeFiles/controllerlib.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

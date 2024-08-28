@@ -8,7 +8,7 @@ add_executable(server main.cpp)
 #添加模块
 add_subdirectory(model)
 add_subdirectory(tool)
-
+add_subdirectory(controller)
 #链接库
-target_link_libraries(server modellib toollib mysqlcppconn)
+target_link_libraries(server  controllerlib)
 

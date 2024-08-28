@@ -1,4 +1,4 @@
-# Install script for directory: /home/lorrainewen/CodeLamp/server1/src
+# Install script for directory: /home/lorrainewen/CodeLamp/server1/src/controller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,13 +40,5 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/lorrainewen/CodeLamp/server1/build/src/model/cmake_install.cmake")
-  include("/home/lorrainewen/CodeLamp/server1/build/src/tool/cmake_install.cmake")
-  include("/home/lorrainewen/CodeLamp/server1/build/src/controller/cmake_install.cmake")
-
 endif()
 

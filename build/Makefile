@@ -155,6 +155,19 @@ toollib/fast:
 	$(MAKE) $(MAKESILENT) -f src/tool/CMakeFiles/toollib.dir/build.make src/tool/CMakeFiles/toollib.dir/build
 .PHONY : toollib/fast
 
+#=============================================================================
+# Target rules for targets named controllerlib
+
+# Build rule for target.
+controllerlib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 controllerlib
+.PHONY : controllerlib
+
+# fast build rule for target.
+controllerlib/fast:
+	$(MAKE) $(MAKESILENT) -f src/controller/CMakeFiles/controllerlib.dir/build.make src/controller/CMakeFiles/controllerlib.dir/build
+.PHONY : controllerlib/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -163,6 +176,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... controllerlib"
 	@echo "... modellib"
 	@echo "... server"
 	@echo "... toollib"

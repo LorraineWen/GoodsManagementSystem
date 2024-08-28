@@ -9,3 +9,6 @@
 /home/lorrainewen/CodeLamp/server1/build/src/tool/CMakeFiles/toollib.dir
 /home/lorrainewen/CodeLamp/server1/build/src/tool/CMakeFiles/edit_cache.dir
 /home/lorrainewen/CodeLamp/server1/build/src/tool/CMakeFiles/rebuild_cache.dir
+/home/lorrainewen/CodeLamp/server1/build/src/controller/CMakeFiles/controllerlib.dir
+/home/lorrainewen/CodeLamp/server1/build/src/controller/CMakeFiles/edit_cache.dir
+/home/lorrainewen/CodeLamp/server1/build/src/controller/CMakeFiles/rebuild_cache.dir

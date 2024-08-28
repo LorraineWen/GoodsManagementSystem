@@ -8,7 +8,7 @@ QueryGoodsDao::~QueryGoodsDao()
 {
 
 }
-Goods QueryGoodsDao::querygoodsdao(std::string name)
+Goods QueryGoodsDao::querygoodsdao(const std::string name)
 {
     Goods goods;
     try

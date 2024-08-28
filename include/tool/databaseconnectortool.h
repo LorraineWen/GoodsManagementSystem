@@ -11,7 +11,7 @@ class DatabaseConnector
     private:
         DatabaseConnector();
         ~DatabaseConnector();
-        static DatabaseConnector *databaseconn;
+        static DatabaseConnector databaseconn;
         sql::Driver *driver;
         sql::Connection *con;
 };
