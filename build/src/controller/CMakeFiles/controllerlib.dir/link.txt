@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../libcontrollerlib.a CMakeFiles/controllerlib.dir/addgoodscontroller.cpp.o CMakeFiles/controllerlib.dir/deletegoodscontroller.cpp.o CMakeFiles/controllerlib.dir/querygoodscontroller.cpp.o CMakeFiles/controllerlib.dir/servercontroller.cpp.o CMakeFiles/controllerlib.dir/updategoodscontroller.cpp.o
-/usr/bin/ranlib ../../libcontrollerlib.a

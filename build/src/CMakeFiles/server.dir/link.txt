@@ -1,1 +1,0 @@
-/usr/bin/c++  -g -g CMakeFiles/server.dir/main.cpp.o -o ../server  ../libcontrollerlib.a ../libmodellib.a ../libtoollib.a -lmysqlcppconn 
