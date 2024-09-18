@@ -13,36 +13,44 @@ ServerController::~ServerController()
 void ServerController::init()
 {
     int opt=1;
-    addrlen = sizeof(address);
-    if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) 
+    port=8989;
+    saddrlen = sizeof(saddr);
+    sfd=socket(AF_INET,SOCK_STREAM,0);
+    if (sfd==-1) 
     {
-            std::cerr<<"socket failed"<<std::endl;
-            exit(EXIT_FAILURE);
+        perror("socket error");
     }
-    if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) 
+    saddr.sin_family = AF_INET;
+    saddr.sin_addr.s_addr = INADDR_ANY;
+    saddr.sin_port = htons(port);
+    flags=bind(sfd, (struct sockaddr *)&saddr,saddrlen);
+    if (flags==-1) 
     {
-        std::cerr<<"setsocket failed"<<std::endl;
-        exit(EXIT_FAILURE);
-    }
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(PORT);
-    if (bind(server_fd, (struct sockaddr *)&address, sizeof(address))<0) 
-    {
-        perror("bind failed");
-        exit(EXIT_FAILURE);
-    }   
+        perror("bind error");
+    } 
 }
 void ServerController::handle()
 {
-    char buffer[MAXBUFFER] = {0};
-    int valread = read(new_socket, buffer, MAXBUFFER);
-        std::cout<<"已经接收连接"<<new_socket<<std::endl;
-        if (valread > 0) 
+    int clientfd=cfd;
+    while(true)
+    {
+        memset(rbuffer, 0, sizeof(rbuffer));
+        flags= recv(clientfd, rbuffer, MAXBUFFER,0);
+        if(flags==-1)
+        {
+            perror("recv error");
+        }
+        else if(flags==0)
+        {
+            printf("对端断开连接\n");
+            close(clientfd);
+            break;
+        }
+        else
         {
             try 
             {
-                nlohmann::json jsonbuffer = nlohmann::json::parse(buffer);
+                nlohmann::json jsonbuffer = nlohmann::json::parse(rbuffer);
                 std::string cmd=jsonbuffer["cmd"];
                 nlohmann::json goodsdata=jsonbuffer["goods"];
                 std::string name=nlohmann::json::string_t(goodsdata["name"]);
@@ -52,46 +60,48 @@ void ServerController::handle()
                 if(cmd=="add")
                 {
                     AddGoodsController add;
-                    add.addgoodscontroller(new_socket,goods);
+                    add.addgoodscontroller(clientfd,goods);
                 }
                 else if(cmd=="delete")
                 {
                     DeleteGoodsController del;
-                    del.deletegoodscontroller(new_socket,goods.getName());
+                    del.deletegoodscontroller(clientfd,goods.getName());
                 }
                 else if(cmd=="update")
                 {
                     UpdateGooodsController update;
-                    update.updategoodscontroller(new_socket,goods);
+                    update.updategoodscontroller(clientfd,goods);
                 }
                 else if(cmd=="query")
                 {
                     QueryGoodsController query;
-                    query.querygoodscontroller(new_socket,goods.getName());
+                    query.querygoodscontroller(clientfd,goods.getName());
                 }
             } 
             catch (const nlohmann::json::parse_error& e) 
             {
                 std::cerr << "JSON parse error: " << e.what() << std::endl;
             }
-        } 
-        memset(buffer, 0, sizeof(buffer));
+        }
+    }
 }
 void ServerController::loop()
 {
+    flags=listen(sfd, 100);
+    if(flags==-1)
+    {
+        perror("listen error");
+    }  
     while(true) 
     {
-        if (listen(server_fd, 100) < 0) 
+        struct sockaddr_in caddr;
+        int caddrlen=sizeof(caddr);
+        cfd=accept(sfd, (struct sockaddr *)&caddr, (socklen_t*)&caddrlen);
+        if (cfd==-1) 
         {
-            perror("listen");
-            exit(EXIT_FAILURE);
+            perror("accept error");
         }
-        if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0) 
-        {
-            perror("accept");
-            exit(EXIT_FAILURE);
-        }
-        std::thread t(&ServerController::handle,this);//由于成员函数的调用必须依赖于对象，如果不，就需要使用类的范围解析符
+        std::thread t(&ServerController::handle,this);//必须加上this
         t.detach();
     }
 }

@@ -1,6 +1,6 @@
 #include"../../include/controller/addgoodscontroller.h"
 #include<sys/socket.h>
-#include<iostream>
+#include<unistd.h>
 AddGoodsController::AddGoodsController()
 {
 
@@ -16,10 +16,14 @@ void AddGoodsController::addgoodscontroller(int& clientfd,const Goods& goods)
     if(add.addgoodsdao(goods))
     {
         res=1;
-        std::cout<<"成功添加商品"<<std::endl;
+        printf("成功添加商品\n");
     }
     nlohmann::json replydata;
     replydata["code"]=res;
     std::string replystr=replydata.dump();
-    send(clientfd,replystr.c_str(),replystr.length(),0);
+    res=send(clientfd,replystr.c_str(),replystr.length(),0);
+    if(res==-1)
+    {
+        perror("cfd send error");
+    }
 }

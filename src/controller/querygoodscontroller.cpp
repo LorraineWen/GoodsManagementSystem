@@ -1,7 +1,7 @@
 #include"../../include/controller/querygoodscontroller.h"
-#include<iostream>
 #include<nlohmann/json.cpp>
 #include<sys/socket.h>
+#include<unistd.h>
 QueryGoodsController::QueryGoodsController()
 {
 
@@ -18,7 +18,7 @@ void QueryGoodsController::querygoodscontroller(int& clientfd,const std::string&
     if(goods.getName()!="")
     {
         res=1;
-        std::cout<<"查询商品成功"<<std::endl;
+        printf("查询商品成功\n");
     }
     nlohmann::json replyjson;
     replyjson["code"]=res;
@@ -28,5 +28,9 @@ void QueryGoodsController::querygoodscontroller(int& clientfd,const std::string&
     goodsjson["number"]=goods.getNumber();
     replyjson["goods"]=goodsjson;
     std::string replystr=replyjson.dump();
-    send(clientfd,replystr.c_str(),replystr.length(),0);
+    res=send(clientfd,replystr.c_str(),replystr.length(),0);
+    if(res==-1)
+    {
+        perror("querycfd send error");
+    }
 }

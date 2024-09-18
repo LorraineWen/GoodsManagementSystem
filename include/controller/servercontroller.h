@@ -1,8 +1,6 @@
 #ifndef SERVERTOOL_HEADER
 #define SERVERTOOL_HEADER
-#define PORT 8989
 #define MAXBUFFER 1024
-#define MAX_EVENTS 1024
 #include<sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
@@ -22,12 +20,12 @@ class ServerController
         void handle();
         void loop();
     private:
-    int server_fd;
-    int new_socket;
-    struct sockaddr_in address;
-    int addrlen;
-    struct epoll_event events[MAX_EVENTS];
-    int epoll_fd;
-    struct epoll_event event;
+    int sfd;
+    int cfd;
+    struct sockaddr_in saddr;
+    int saddrlen;;
+    int port;
+    int flags;
+    char rbuffer[MAXBUFFER];
 };
 #endif

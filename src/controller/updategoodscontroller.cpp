@@ -1,5 +1,5 @@
 #include"../../include/controller/updategoodscontroller.h"
-#include<iostream>
+#include<unistd.h>
 #include<sys/socket.h>
 #include<nlohmann/json.cpp>
 UpdateGooodsController::UpdateGooodsController()
@@ -19,10 +19,14 @@ void UpdateGooodsController::updategoodscontroller(int& clientfd,const Goods& ne
     if(update.updategoodsdao(oldgoods,newgoods))
     {
         res=1;
-        std::cout<<"修改商品成功"<<std::endl;
+        printf("修改商品成功\n");
     }
     nlohmann::json replyjson;
     replyjson["code"]=res;
     std::string replystr=replyjson.dump();
-    send(clientfd,replystr.c_str(),replystr.length(),0);
+    res=send(clientfd,replystr.c_str(),replystr.length(),0);
+    if(res==-1)
+    {
+        perror("updatecfd send error");
+    }
 }
